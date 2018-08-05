@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Kisan Dashboard</title>
+    <style>
+    .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+        small {
+        display: block;
+        line-height: 1.428571429;
+        color: #999;
+        }
+        .c1{color:#fff}
+        .navbar a{
+          padding: 14px;
+    border-radius: 20px;
+        }
+        .navbar-default{
+          background-color: #fff;
+    border-color: #e7e7e7;
+    box-shadow: 0px 0px 20px;
+    border-radius: 0;
+    padding: 15px;
+    border: none;
+        }
+
+
+</style>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">kisannetwork</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/dashboard">Users</a></li>
+            <li><a href="/messagelist">Message List</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="btn btn-danger" href="/logout">Logout</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div><!--/.container-fluid -->
+    </nav>
+
+
+<div class="">
+  <div class="col-sm-3 hide-xs"></div>
+  <div class="col-sm-6 col-md-6 col-xs-12 hide-xs">
+    <form class="form-signin" method="post" action="/sendsms" style="padding:60px">
+      <h1 class="h3 mb-3 font-weight-normal">Compose Message</h1>
+      <input type="text" id="otptext" name="otptext" class="form-control" value="{{otpMsg}}" required="" autofocus="">
+      <input type="hidden" value="{{phone}}" name="phone" />
+      <button class="btn btn-lg btn-success btn-block" style="margin-top:20px" type="submit">Send Message</button>
+    </form>
+  </div>
+  <div class="col-sm-3 hide-xs"></div>
+
+</div>
+
+
+
+  </body>
+</html>
