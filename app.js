@@ -90,7 +90,7 @@ app.get('/sendsms/:id', auth, (req, res) => {
     const result = userData.filter(user => user.id == req.params.id);
     let otp = Math.floor(100000 + Math.random() * 900000);
     let msg = `Dear ${result[0].first_name} Use OTP :${otp} to login your account.`;
-    sendOtp(result[0].phone, msg);
+    sendOtp("919971792703", msg);
     res.render("sendsms", {
         phone: result[0].phone,
         otpMsg: msg
