@@ -103,6 +103,7 @@ app.get('/logout', (req, res) => {
 });
 
 app.get('/sendOtp', sendTestOtp);
+app.get('/sendOtpmsg91', sendTestOtpmsg91);
 
 // signin onthe basis of Email and password which is now static
 app.post('/signin', function(req, res) {
@@ -157,16 +158,31 @@ function sendTestOtp(req, res, next) {
     }
 };
 
-function sendOtp(reciever, otpText) {
+function sendTestOtpmsg91(req, res, next) {
 
     try {
-        let nexmo = new Nexmo({
-            apiKey: "8b47fa0e",
-            apiSecret: "gyn9N3dr47muHags"
-        });
-        nexmo.message.sendSms("Realinit Inc", reciever, otpText, {}, (err, response) => {
-            res.send(response);
-        });
+      let apiKey = '229824AvE7LS7DNzx5b64a067';
+      let msg91 = require("msg91")(apiKey, "MSGIND", "106" );
+      msg91.send("919971792703", "Hey Nitin here I am going to add otp functionallity in that.", function(err, response){
+          console.log(err);
+          console.log(response);
+          res.send(response);
+      });
+
+    } catch (e) {
+        console.log(e);
+    }
+};
+
+function sendOtp(reciever, otpText) {
+    try {
+      let apiKey = '229824AvE7LS7DNzx5b64a067';
+      let msg91 = require("msg91")(apiKey, "MSGIND", "106" );
+      msg91.send(reciever, otpText, function(err, response){
+          console.log(err);
+          console.log(response);
+      });
+
     } catch (e) {
         console.log(e);
     }
