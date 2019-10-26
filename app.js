@@ -90,7 +90,7 @@ app.get('/sendsms/:id', auth, (req, res) => {
     const result = userData.filter(user => user.id == req.params.id);
     let otp = Math.floor(100000 + Math.random() * 900000);
     let msg = `Dear ${result[0].first_name} Use OTP :${otp} to login your account.`;
-    sendOtp(["919971792703","919958692471"], msg);
+    sendOtp(["919958692471"], msg);
     res.render("sendsms", {
         phone: result[0].phone,
         otpMsg: msg
@@ -163,7 +163,7 @@ function sendTestOtpmsg91(req, res, next) {
     try {
       let apiKey = '229824AvE7LS7DNzx5b64a067';
       let msg91 = require("msg91")(apiKey, "MSGIND", "106" );
-      msg91.send(["919971792703","919958692471"], "Hey Nitin here I am going to add otp functionallity in that.", function(err, response){
+      msg91.send(["919958692471"], "Hey Nitin here I am going to add otp functionallity in that.", function(err, response){
           console.log(err);
           console.log(response);
           res.send(response);
